@@ -1,5 +1,13 @@
+// Components
+import Navbar from "./components/Navbar";
+
 function App() {
-  return <h1>Hello Gumroad</h1>;
+  return (
+    <>
+      <Navbar />
+      <h1>Hello Gumroad</h1>
+    </>
+  );
 }
 
 export default App;
