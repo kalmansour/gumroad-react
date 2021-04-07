@@ -1,4 +1,5 @@
 import React from "react";
+// import { Tabs, Tab } from "react-bootstrap";
 
 const Overlay = () => {
   return (
@@ -50,7 +51,10 @@ const Overlay = () => {
           role="tabpanel"
           aria-labelledby="nav-home-tab"
         >
-          ...
+          <div>
+            <h1>Supp</h1>
+            <p>We will be adding overlay content here</p>
+          </div>
         </div>
         <div
           class="tab-pane fade"

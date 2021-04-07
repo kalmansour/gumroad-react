@@ -1,11 +1,12 @@
 // Components
 import Navbar from "./components/Navbar";
+import Overlay from "./components/Overlay";
 
 function App() {
   return (
     <>
       <Navbar />
-      <h1>Hello Gumroad</h1>
+      <Overlay />
     </>
   );
 }
