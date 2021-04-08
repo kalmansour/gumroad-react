@@ -1,6 +1,6 @@
 // Components
-import Navbar from "./components/Navbar";
-import Overlay from "./components/Overlay";
+import Navbar from "./components/navabr/Navbar";
+import Overlay from "./components/widget/Widget";
 
 function App() {
   return (
