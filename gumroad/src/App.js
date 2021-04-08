@@ -1,5 +1,5 @@
 // Components
-import Navbar from "./components/navabr/Navbar";
+import Navbar from "./components/navabar/Navbar";
 import Overlay from "./components/widget/Widget";
 
 function App() {
