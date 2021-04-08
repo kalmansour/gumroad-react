@@ -5,14 +5,27 @@ import { BsClipboard } from "react-icons/bs";
 
 const Overlay = () => {
   const [product, setProduct] = useState("Buy my product");
+  const [payment, setPayment] = useState("");
+  const [singleProduct, setSingleProduct] = useState("");
   const [copy, setCopy] = useState(false);
 
   const code = `<script src="https://gumroad.com/js/gumroad.js"></script>
-  <a class="gumroad-button" href="https://gum.co/demo">${product}</a>)`;
+  <a class="gumroad-button" href="https://gum.co/demo${payment}" ${singleProduct}>${product}</a>`;
 
   const handleChange = (event) => {
     setProduct(event.target.value);
   };
+
+  const togglePayment = () => {
+    setPayment(payment === "" ? "?wanted=true" : "");
+  };
+
+  const toggleSingleProduct = () => {
+    setSingleProduct(
+      singleProduct === "" ? "data-gumroad-single-product='true'" : ""
+    );
+  };
+
   return (
     <div style={{ marginLeft: 200, marginRight: 200 }}>
       <Tabs defaultActiveKey="overlay" id="uncontrolled-tab-example">
@@ -34,9 +47,10 @@ const Overlay = () => {
               <div class="form-check">
                 <input
                   class="form-check-input"
+                  value={payment}
                   type="checkbox"
-                  // value=""
                   id="flexCheckAuto"
+                  onClick={togglePayment}
                 />
                 <label class="form-check-label" for="flexCheckAuto">
                   Auto-trigger the payment form
@@ -46,9 +60,9 @@ const Overlay = () => {
                 <input
                   class="form-check-input"
                   type="checkbox"
-                  // value=""
+                  value={singleProduct}
                   id="flexCheckAllow"
-                  // checked
+                  onClick={toggleSingleProduct}
                 />
                 <label class="form-check-label" for="flexCheckAllow">
                   Allow single-product purchases only
@@ -64,7 +78,6 @@ const Overlay = () => {
                   marginTop: 30,
                   textAlign: "center",
                   alignItems: "center",
-                  // justifyContent: "center",
                   display: "flex",
                   flexDirection: "column",
                 }}
