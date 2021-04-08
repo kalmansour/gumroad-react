@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Tabs, Tab } from "react-bootstrap";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { BsClipboard } from "react-icons/bs";
 
 const Overlay = () => {
   const [product, setProduct] = useState("Buy my product");
@@ -87,13 +88,20 @@ const Overlay = () => {
                   We highly recommend you have an SSL certificate to increase
                   buyer confidence.
                 </h8>
-                <div>
-                  <textarea placeholder={code} readonly />
+                <div
+                  class="demo border"
+                  style={{ backgroundColor: "white", width: 500, height: 100 }}
+                >
+                  <textarea
+                    placeholder={code}
+                    readonly
+                    style={{ width: 400 }}
+                  />
                   <CopyToClipboard
                     text={code}
                     onCopy={() => setCopy({ copy: true })}
                   >
-                    <button>Copy</button>
+                    <BsClipboard class="float-right" size="2em" />
                   </CopyToClipboard>
                   {copy ? <span style={{ color: "red" }}>Copied.</span> : null}
                 </div>
