@@ -1,7 +1,11 @@
+// Libraries
 import React, { useState } from "react";
 import { Tabs, Tab } from "react-bootstrap";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { BsClipboard } from "react-icons/bs";
+import { CgCopy } from "react-icons/cg";
+import styled from "styled-components";
+// import { ImEmbed2 } from "react-icons/im";
 
 const Overlay = () => {
   const [product, setProduct] = useState("Buy my product");
@@ -26,15 +30,44 @@ const Overlay = () => {
     );
   };
 
+  const overlayTitle = (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+      }}
+    >
+      <span className="fa fa-list-alt fa-fw"></span>
+      <CgCopy size="5em" />
+      <h5>Overlay</h5>
+      <p>Inline purchases without leaving your site</p>
+    </div>
+  );
+
+  // const embedTitle = (
+  //   <div
+  //     style={{
+  //       display: "flex",
+  //       flexDirection: "column",
+  //       alignItems: "center",
+  //       textAlign: "center",
+  //     }}
+  //   >
+  //     <span className="fa fa-list-alt fa-fw"></span>
+  //     <ImEmbed2 size="5em" />
+  //     <h5>Embed</h5>
+  //     <p>Inline purchases without leaving your site</p>
+  //   </div>
+  // );
+
   return (
-    <div style={{ marginLeft: 200, marginRight: 200 }}>
+    <Container>
       <Tabs defaultActiveKey="overlay" id="uncontrolled-tab-example">
-        <Tab eventKey="overlay" title="Overlay" subtitle="inline">
+        <Tab eventKey="overlay" title={overlayTitle} subtitle="inline">
           <Tab.Content>
-            <div
-              class="demo border"
-              style={{ height: 200, backgroundColor: "white" }}
-            >
+            <ProductBox>
               <h6>Button Text:</h6>
               <input
                 placeholder="Buy my product"
@@ -68,10 +101,15 @@ const Overlay = () => {
                   Allow single-product purchases only
                 </label>
               </div>
-            </div>
+            </ProductBox>
             <div
               class="demo border"
-              style={{ height: 500, backgroundColor: "#f5f5f5" }}
+              style={{
+                height: 500,
+                backgroundColor: "#f5f5f5",
+                // position: "relative",
+                // top: 300,
+              }}
             >
               <div
                 style={{
@@ -95,6 +133,7 @@ const Overlay = () => {
                     borderColor: "grey",
                     justifyContent: "center",
                   }}
+                  readonly="readonly"
                 />
                 <h6>Copy and paste this code into your website</h6>
                 <h8>
@@ -107,8 +146,8 @@ const Overlay = () => {
                 >
                   <textarea
                     placeholder={code}
-                    readonly
-                    style={{ width: 400 }}
+                    style={{ width: 500, height: 80, resize: "none" }}
+                    readonly="readonly"
                   />
                   <CopyToClipboard
                     text={code}
@@ -122,16 +161,28 @@ const Overlay = () => {
             </div>
           </Tab.Content>
         </Tab>
-        <Tab eventKey="embed" title="Embed">
+        {/* <Tab eventKey="embed" title={embedTitle}>
           <Tab.Content>
             <div class="demo border" style={{ height: 400 }}>
               <p>Embed Content Here</p>
             </div>
           </Tab.Content>
-        </Tab>
+        </Tab> */}
       </Tabs>
-    </div>
+    </Container>
   );
 };
 
 export default Overlay;
+
+const Container = styled.div`
+  margin-left: 100px;
+  margin-right: 100px;
+  width: 700px;
+`;
+
+const ProductBox = styled.div`
+  background-color: white;
+  border: solid lightgray;
+  border-width: 0px 1px;
+`;
