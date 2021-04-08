@@ -68,16 +68,15 @@ const Overlay = () => {
         <Tab eventKey="overlay" title={overlayTitle} subtitle="inline">
           <Tab.Content>
             <ProductBox>
-              <h6>Button Text:</h6>
-              <input
+              <ButtonTitle>Button Text:</ButtonTitle>
+              <InputProductText
                 placeholder="Buy my product"
                 value={product}
                 type="text"
                 className="form-control"
                 onChange={handleChange}
-                style={{ width: "50%" }}
               />
-              <div class="form-check">
+              <div class="form-check" style={{ margin: "15px 20px" }}>
                 <input
                   class="form-check-input"
                   value={payment}
@@ -89,7 +88,7 @@ const Overlay = () => {
                   Auto-trigger the payment form
                 </label>
               </div>
-              <div class="form-check">
+              <div class="form-check" style={{ margin: "15px 20px" }}>
                 <input
                   class="form-check-input"
                   type="checkbox"
@@ -102,18 +101,9 @@ const Overlay = () => {
                 </label>
               </div>
             </ProductBox>
-            <div
-              class="demo border"
-              style={{
-                height: 500,
-                backgroundColor: "#f5f5f5",
-                // position: "relative",
-                // top: 300,
-              }}
-            >
+            <ClipboardBox>
               <div
                 style={{
-                  marginTop: 30,
                   textAlign: "center",
                   alignItems: "center",
                   display: "flex",
@@ -158,7 +148,7 @@ const Overlay = () => {
                   {copy ? <span style={{ color: "red" }}>Copied.</span> : null}
                 </div>
               </div>
-            </div>
+            </ClipboardBox>
           </Tab.Content>
         </Tab>
         {/* <Tab eventKey="embed" title={embedTitle}>
@@ -178,11 +168,29 @@ export default Overlay;
 const Container = styled.div`
   margin-left: 100px;
   margin-right: 100px;
+  margin-bottom: 50px;
   width: 700px;
 `;
 
 const ProductBox = styled.div`
   background-color: white;
-  border: solid lightgray;
+  border: solid #e1e1e1;
   border-width: 0px 1px;
+  height: 160px;
+`;
+
+const ButtonTitle = styled.h6`
+  margin-left: 20px;
+`;
+
+const InputProductText = styled.input`
+  margin-left: 20px;
+  width: 90%;
+`;
+
+const ClipboardBox = styled.div`
+  border: solid #e1e1e1;
+  border-width: 1px 1px;
+  height: 350px;
+  background-color: #f5f5f5;
 `;
