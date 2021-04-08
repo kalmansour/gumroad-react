@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { Tabs, Tab } from "react-bootstrap";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const Overlay = () => {
   const [product, setProduct] = useState("Buy my product");
+  const [copy, setCopy] = useState(false);
+
+  const code = `<script src="https://gumroad.com/js/gumroad.js"></script>
+  <a class="gumroad-button" href="https://gum.co/demo">${product}</a>)`;
 
   const handleChange = (event) => {
     setProduct(event.target.value);
@@ -64,17 +69,17 @@ const Overlay = () => {
                 }}
               >
                 <input
-                  type="button"
+                  type="text"
                   class="btn btn-light"
                   placeholder="Buy my product"
                   value={product}
                   style={{
-                    width: "20%",
                     margin: 50,
                     boxShadow: "0 5px 15px rgba(0, 0, 0, 0.05)",
                     border: "solid",
                     borderWidth: "1px",
                     borderColor: "grey",
+                    justifyContent: "center",
                   }}
                 />
                 <h6>Copy and paste this code into your website</h6>
@@ -82,6 +87,16 @@ const Overlay = () => {
                   We highly recommend you have an SSL certificate to increase
                   buyer confidence.
                 </h8>
+                <div>
+                  <textarea placeholder={code} readonly />
+                  <CopyToClipboard
+                    text={code}
+                    onCopy={() => setCopy({ copy: true })}
+                  >
+                    <button>Copy</button>
+                  </CopyToClipboard>
+                  {copy ? <span style={{ color: "red" }}>Copied.</span> : null}
+                </div>
               </div>
             </div>
           </Tab.Content>
@@ -90,7 +105,7 @@ const Overlay = () => {
           <Tab.Content>
             <div class="demo border" style={{ height: 400 }}>
               <p>Embed Content Here</p>
-            </div>{" "}
+            </div>
           </Tab.Content>
         </Tab>
       </Tabs>
