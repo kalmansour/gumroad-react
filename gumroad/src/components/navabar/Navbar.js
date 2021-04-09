@@ -15,23 +15,23 @@ const Navbar = () => {
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a id="About" class="nav-link" href="/#">
+              <a
+                id="About"
+                class="nav-link"
+                href="/#"
+                style={{ color: "turquoise" }}
+              >
                 Widgets <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a id="University" class="nav-link" href="/#">
-                University
+              <a id="Ping" class="nav-link" href="/#">
+                Ping
               </a>
             </li>
             <li class="nav-item">
-              <a id="Features" class="nav-link" href="/#">
-                Features
-              </a>
-            </li>
-            <li class="nav-item">
-              <a id="Pricing" class="nav-link" href="/#">
-                Pricing
+              <a id="API" class="nav-link" href="/#">
+                API
               </a>
             </li>
           </ul>
