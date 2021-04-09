@@ -137,12 +137,14 @@ const Widget = () => {
               </div>
             </ProductBox>
             <ClipboardContainer>
-              <ProductPreview
-                type="text"
-                placeholder="Buy my product"
-                value={product}
-                readonly="readonly"
-              />
+              <a href="https://gumroad.com/l/demo">
+                <ProductPreview
+                  type="text"
+                  placeholder="Buy my product"
+                  value={product}
+                  readonly="readonly"
+                />
+              </a>
               <DirectionsText>
                 Copy and paste this code into your website
               </DirectionsText>
