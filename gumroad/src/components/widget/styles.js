@@ -1,9 +1,21 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #efefe9
+  }
+`;
+
+export const Signature = styled.footer`
+  text-align: center;
+  margin: 40px;
+`;
 
 export const Container = styled.div`
-  margin-left: 100px;
-  margin-right: 100px;
-  margin-bottom: 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 30px auto;
   width: 700px;
   border-radius: 5px;
 `;

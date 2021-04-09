@@ -2,13 +2,13 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <>
+    <div style={{ backgroundColor: "white" }}>
       <nav className="navbar navbar-expand-lg navbar-light">
         <a id="Features" class="nav-link" href="/#">
           <img
             src="https://pbs.twimg.com/media/DyWXd86UwAAsLM-.png:large"
-            width="75"
-            height="75"
+            width="50"
+            height="50"
             alt="gumlogo"
           />
         </a>
@@ -16,7 +16,7 @@ const Navbar = () => {
           <ul class="navbar-nav">
             <li class="nav-item active">
               <a id="About" class="nav-link" href="/#">
-                Discover <span class="sr-only">(current)</span>
+                Widgets <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
@@ -37,7 +37,7 @@ const Navbar = () => {
           </ul>
         </div>
       </nav>
-    </>
+    </div>
   );
 };
 

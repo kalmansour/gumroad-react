@@ -22,6 +22,7 @@ import {
   CodeArea,
   EmbedBox,
   LoadingPreview,
+  Signature,
 } from "./styles";
 
 const Widget = () => {
@@ -29,33 +30,16 @@ const Widget = () => {
   const [payment, setPayment] = useState("");
   const [singleProduct, setSingleProduct] = useState("");
   const [embedProduct, setEmbedProduct] = useState("");
-
   const [copy, setCopy] = useState(false);
 
+  // Tabs Code Area
   const overlayCode = `<script src="https://gumroad.com/js/gumroad.js"></script>
   <a class="gumroad-button" href="https://gum.co/demo${payment}" ${singleProduct}>${product}</a>`;
 
   const embedCode = `<script src="https://gumroad.com/js/gumroad-embed.js"></script>
   <div class="gumroad-product-embed" data-gumroad-product-id="demo" ${embedProduct}><a href="https://gumroad.com/l/demo">Loading...</a></div>`;
 
-  const handleChange = (event) => {
-    setProduct(event.target.value);
-  };
-
-  const togglePayment = () => {
-    setPayment(payment === "" ? "?wanted=true" : "");
-  };
-
-  const toggleSingleProduct = () => {
-    setSingleProduct(
-      singleProduct === "" ? "data-gumroad-single-product='true'" : ""
-    );
-  };
-
-  const toggleEmbedProduct = () => {
-    setEmbedProduct(embedProduct === "" ? "data-outbound-embed='true'" : "");
-  };
-
+  // Tabs Title
   const overlayTitle = (
     <div
       style={{
@@ -90,6 +74,25 @@ const Widget = () => {
       <p style={{ color: "#a2a2a2" }}> Embedded products on your site</p>
     </div>
   );
+
+  // Toggles && Handle Change
+  const handleChange = (event) => {
+    setProduct(event.target.value);
+  };
+
+  const togglePayment = () => {
+    setPayment(payment === "" ? "?wanted=true" : "");
+  };
+
+  const toggleSingleProduct = () => {
+    setSingleProduct(
+      singleProduct === "" ? "data-gumroad-single-product='true'" : ""
+    );
+  };
+
+  const toggleEmbedProduct = () => {
+    setEmbedProduct(embedProduct === "" ? "data-outbound-embed='true'" : "");
+  };
 
   return (
     <Container>
@@ -236,6 +239,7 @@ const Widget = () => {
           </Tab.Content>
         </Tab>
       </Tabs>
+      <Signature>Designed by Khaled</Signature>
     </Container>
   );
 };
