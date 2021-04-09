@@ -2,9 +2,10 @@
 import React, { useState } from "react";
 import { Tabs, Tab } from "react-bootstrap";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+
+// Icons
 import { BsClipboard } from "react-icons/bs";
 import { CgCopy } from "react-icons/cg";
-import styled from "styled-components";
 import { ImEmbed2 } from "react-icons/im";
 
 // Styles
@@ -18,7 +19,9 @@ import {
   DirectionsText,
   RecommendedText,
   CodeBox,
-  OverlayCode,
+  CodeArea,
+  EmbedBox,
+  LoadingPreview,
 } from "./styles";
 
 const Widget = () => {
@@ -78,11 +81,12 @@ const Widget = () => {
         flexDirection: "column",
         alignItems: "center",
         textAlign: "center",
+        width: 334,
       }}
     >
       <span className="fa fa-list-alt fa-fw"></span>
       <ImEmbed2 size="5em" />
-      <h5 style={{ color: "#a2a2a2" }}>Embed</h5>
+      <h5 style={{ color: "darkslategray" }}>Embed</h5>
       <p style={{ color: "#a2a2a2" }}> Embedded products on your site</p>
     </div>
   );
@@ -147,7 +151,7 @@ const Widget = () => {
                 buyer confidence.
               </RecommendedText>
               <CodeBox>
-                <OverlayCode placeholder={overlayCode} readonly="readonly" />
+                <CodeArea placeholder={overlayCode} readonly="readonly" />
                 <CopyToClipboard
                   text={overlayCode}
                   onCopy={() => setCopy({ copy: true })}
@@ -173,10 +177,14 @@ const Widget = () => {
         </Tab>
         <Tab eventKey="embed" title={embedTitle}>
           <Tab.Content>
-            <div class="demo border" style={{ height: 400 }}>
+            <EmbedBox>
               <div
                 class="form-check"
-                style={{ margin: "15px 20px", color: "#a2a2a2" }}
+                style={{
+                  paddingTop: "15px",
+                  marginLeft: "20px",
+                  color: "#a2a2a2",
+                }}
               >
                 <input
                   class="form-check-input"
@@ -190,39 +198,39 @@ const Widget = () => {
                   non-HTTPS websites)
                 </label>
               </div>
-              <ClipboardContainer>
-                <p>Loading...</p>
-                <DirectionsText>
-                  Copy and paste this code into your website
-                </DirectionsText>
-                <RecommendedText>
-                  We highly recommend you have an SSL certificate to increase
-                  buyer confidence.
-                </RecommendedText>
-                <CodeBox>
-                  <OverlayCode placeholder={embedCode} readonly="readonly" />
-                  <CopyToClipboard
-                    text={embedCode}
-                    onCopy={() => setCopy({ copy: true })}
-                  >
-                    <BsClipboard
-                      size="2em"
-                      style={{
-                        marginTop: "auto",
-                        marginBottom: "auto",
-                        marginRight: "10px",
-                        color: "turquoise",
-                      }}
-                    />
-                  </CopyToClipboard>
-                  {copy ? (
-                    <span style={{ color: "tomato", margin: "5px 5px" }}>
-                      Copied!
-                    </span>
-                  ) : null}
-                </CodeBox>
-              </ClipboardContainer>
-            </div>
+            </EmbedBox>
+            <ClipboardContainer>
+              <LoadingPreview>Loading...</LoadingPreview>
+              <DirectionsText>
+                Copy and paste this code into your website
+              </DirectionsText>
+              <RecommendedText>
+                We highly recommend you have an SSL certificate to increase
+                buyer confidence.
+              </RecommendedText>
+              <CodeBox>
+                <CodeArea placeholder={embedCode} readonly="readonly" />
+                <CopyToClipboard
+                  text={embedCode}
+                  onCopy={() => setCopy({ copy: true })}
+                >
+                  <BsClipboard
+                    size="2em"
+                    style={{
+                      marginTop: "auto",
+                      marginBottom: "auto",
+                      marginRight: "10px",
+                      color: "turquoise",
+                    }}
+                  />
+                </CopyToClipboard>
+                {copy ? (
+                  <span style={{ color: "tomato", margin: "5px 5px" }}>
+                    Copied!
+                  </span>
+                ) : null}
+              </CodeBox>
+            </ClipboardContainer>
           </Tab.Content>
         </Tab>
       </Tabs>

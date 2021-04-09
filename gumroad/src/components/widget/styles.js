@@ -74,10 +74,25 @@ export const CodeBox = styled.div`
   border-radius: 5px;
 `;
 
-export const OverlayCode = styled.textarea`
+export const CodeArea = styled.textarea`
   width: 500px;
   height: 80px;
   resize: none;
   border-width: 0px;
   margin: 10px;
+`;
+
+export const EmbedBox = styled.div`
+  background-color: white;
+  border: solid #e1e1e1;
+  border-width: 0px 1px;
+  height: 60px;
+  border-top-right-radius: 1px;
+`;
+
+export const LoadingPreview = styled.p`
+  margin: 50px;
+  justify-content: center;
+  text-align: center;
+  color: darkslategray;
 `;
