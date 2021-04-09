@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 export const Signature = styled.footer`
   text-align: center;
   margin: 40px;
+  color: tomato;
 `;
 
 export const Container = styled.div`
